@@ -20,4 +20,4 @@ jobs:
         pylint --recursive=y src/*
     - name: Test
       run: |
-        pytest -m "unit"
+        pytest tests/unit
