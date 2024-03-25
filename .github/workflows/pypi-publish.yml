@@ -3,7 +3,7 @@ name: PyPi Publish
 on:
   workflow_call:
     secrets:
-      OPYPI_API_TOKEN:
+      PYPI_API_TOKEN:
         required: true
 
 jobs:
