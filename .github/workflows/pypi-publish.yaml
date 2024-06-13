@@ -2,13 +2,13 @@ name: PyPi Publish
 
 on:
   workflow_call:
+    secrets:
+      PYPI_API_TOKEN:
+        required: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: release
-    permissions:
-      id-token: write
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -23,3 +23,5 @@ jobs:
         run: |
           python -m build
       - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
